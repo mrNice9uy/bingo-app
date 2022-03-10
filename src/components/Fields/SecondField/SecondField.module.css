@@ -1,0 +1,16 @@
+.text {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.text span {
+    font-weight: normal;
+    padding: 5px;
+}
+
+.numbersBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 42px);
+    padding: 5px;
+}

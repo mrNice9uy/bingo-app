@@ -1,0 +1,22 @@
+.item {
+    height: 30px;
+    background-color: white;
+    color: blueviolet;
+    margin: 1px;
+    text-align: center;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    line-height: 25px;
+    font-weight: 400
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: gold
+}
+
+.item .active {
+    background-color: blueviolet;
+    color: white;
+    
+}
