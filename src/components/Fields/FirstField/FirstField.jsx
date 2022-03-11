@@ -2,28 +2,20 @@ import React from "react";
 import NumberItem from "../../Number/NumberItem";
 import classes from './FirstField.module.css'
 
-const FirstField = () => {
-    const MIN = 1;
-    const MAX = 90;
-    const MAX_VALUES = 19;
-    let numbers = [];
+const FirstField = (props) => {
+    const {
+        numbers,
+        field,
+        firstArr,
+        setFirstArr,
+        background,
+        setBackground
+    } = props;
 
-    const getRandomNumbers = (min, max) => {
-        for (let i = 0; i < MAX_VALUES; i++) {
-            let rand = min - 0.5 + Math.random() * (max - min + 1);
-            rand = Math.round(rand);
-            numbers.push(rand);            
-        }
-        return numbers;  
-    }
-
-    //numbers.push(getRandomNumbers(MIN, MAX));
-    numbers = getRandomNumbers(MIN, MAX);
-    console.log(numbers)
     return <div>
         <div className={classes.text}>Поле 1<span>Отметьте 8 чисел</span></div>
-        <div className={classes.numbersBlock}>{numbers.map( (item, key) => (
-            <NumberItem key={key} item={item} />
+        <div id={field} className={classes.numbersBlock}>{numbers.map( (item, key) => (
+            <NumberItem key={key} item={item} array={firstArr} setArray={setFirstArr} field={field} background={background} setBackground={setBackground} />
         ))}</div>
     </div>
 }

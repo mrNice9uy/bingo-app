@@ -1,0 +1,27 @@
+.resetBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-top: 5px;
+  }
+  
+  .reset {
+    background: none;
+    color: blueviolet;
+    height: 40px;
+    border: 1px solid blueviolet;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .reset:hover {
+    cursor: pointer;
+  }
+  
+  .reset:active {
+    background-color: blueviolet;
+    color: white;
+    border: 1px solid white;
+  }
+  

@@ -14,29 +14,3 @@
   position: relative;
   top: 10px;
 }
-
-.result-btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-}
-
-.show-result {
-  background: none;
-  color: blueviolet;
-  height: 40px;
-  border: 1px solid blueviolet;
-  border-radius: 15px;
-  padding: 10px;
-  text-align: center;
-}
-
-.show-result:hover {
-  cursor: pointer;
-}
-
-.show-result:active {
-  background-color: blueviolet;
-  color: white;
-  border: 1px solid white;
-}

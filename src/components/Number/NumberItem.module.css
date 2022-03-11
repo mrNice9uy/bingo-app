@@ -15,8 +15,19 @@
     background-color: gold
 }
 
-.item .active {
+.active {
+    height: 30px;
     background-color: blueviolet;
     color: white;
-    
+    margin: 1px;
+    text-align: center;
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    line-height: 25px;
+    font-weight: 400
+}
+
+.active:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
