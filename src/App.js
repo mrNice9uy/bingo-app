@@ -35,10 +35,6 @@ const App = () => {
     setSecondWinnerArr(getRandomNumbers(MAX_SELECTED_VALUES_SECOND, MIN, MAX));
   }, []);
 
-  //console.log("first", firstArr);
-  //console.log("second", secondArr);
-  console.log("winner", firstWinnerArr);
-  console.log("winner", secondWinnerArr);
   return (
     <div className="app-container">
       <div className="app-wrapper">
@@ -80,6 +76,8 @@ const App = () => {
           setSecondNumbers={setSecondNumbers}
           setFirstWinnerArr={setFirstWinnerArr}
           setSecondWinnerArr={setSecondWinnerArr}
+          setFirstArr={setFirstArr}
+          setSecondArr={setSecondArr}
         />
       </div>
     </div>

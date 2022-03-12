@@ -1,33 +1,49 @@
 .item {
-    height: 30px;
-    background-color: white;
-    color: blueviolet;
-    margin: 1px;
-    text-align: center;
-    border: 1px solid blueviolet;
-    border-radius: 5px;
-    line-height: 25px;
-    font-weight: 400
+  height: 30px;
+  background-color: white;
+  color: blueviolet;
+  margin: 1px;
+  text-align: center;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  line-height: 25px;
+  font-weight: 400;
 }
 
 .item:hover {
-    cursor: pointer;
-    background-color: gold
+  cursor: pointer;
+  background-color: gold;
 }
 
 .active {
-    height: 30px;
-    background-color: blueviolet;
-    color: white;
-    margin: 1px;
-    text-align: center;
-    border: 1px solid blueviolet;
-    border-radius: 5px;
-    line-height: 25px;
-    font-weight: 400
+  height: 30px;
+  background-color: blueviolet;
+  color: white;
+  margin: 1px;
+  text-align: center;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  line-height: 25px;
+  font-weight: 400;
 }
 
 .active:hover {
-    cursor: pointer;
-    opacity: 0.5;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@media (min-width: 767px) {
+  .item,
+  .active {
+    height: 50px;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .item,
+  .active {
+    height: 50px;
+    font-size: 24px;
+  }
 }

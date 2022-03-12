@@ -1,44 +1,63 @@
 import React from "react";
-import { MAX_VALUES, MAX_VALUES_SCND_FLD, MIN, MAX, MAX_SELECTED_VALUES_FIRST, MAX_SELECTED_VALUES_SECOND } from '../../constants/constants'
-import { getRandomNumbers } from '../../utils/utils';
-import numberClasses from '../Number/NumberItem.module.css';
-import classes from './ResetBtn.module.css';
+import {
+  MAX_VALUES,
+  MAX_VALUES_SCND_FLD,
+  MIN,
+  MAX,
+  MAX_SELECTED_VALUES_FIRST,
+  MAX_SELECTED_VALUES_SECOND,
+} from "../../constants/constants";
+import { getRandomNumbers, removeActiveClass } from "../../utils/utils";
+import numberClasses from "../Number/NumberItem.module.css";
+import classes from "./ResetBtn.module.css";
 
 const Reset = (props) => {
-    const {
-        ticketNum,
-        setTicketNum,
-        setFirstNumbers,
-        setSecondNumbers,
-        setFirstWinnerArr,
-        setSecondWinnerArr,
-    } = props;
+  const {
+    ticketNum,
+    setTicketNum,
+    setFirstNumbers,
+    setSecondNumbers,
+    setFirstWinnerArr,
+    setSecondWinnerArr,
+    setFirstArr,
+    setSecondArr,
+  } = props;
+  const active = numberClasses.active;
+  const item = numberClasses.item;
 
-    const reset = () => {
-        const active = numberClasses.active;
-        const item = numberClasses.item;
-        debugger;
-        let numbers = document.getElementsByClassName(active);
-        /*console.log(numbers);
-        for (let i=0; i<numbers.length; i++) {
-            numbers[i].classList.remove(active)
-            numbers[i].classList.add(item)
-        }*/
+  const newGame = () => {
+    const firstFld = document.getElementById(1).childNodes;
+    const secondFld = document.getElementById(2).childNodes;
 
-        setTicketNum(ticketNum+1);
-        setFirstNumbers(getRandomNumbers(MAX_VALUES, MIN, MAX));
-        setSecondNumbers(getRandomNumbers(MAX_VALUES_SCND_FLD, MIN, MAX));
-        setFirstWinnerArr(getRandomNumbers(MAX_SELECTED_VALUES_FIRST, MIN, MAX));
-        setSecondWinnerArr(getRandomNumbers(MAX_SELECTED_VALUES_SECOND, MIN, MAX));
-    }
+    removeActiveClass(firstFld, active, item);
+    removeActiveClass(secondFld, active, item);
+    setTicketNum(ticketNum + 1);
+    setFirstNumbers(getRandomNumbers(MAX_VALUES, MIN, MAX));
+    setSecondNumbers(getRandomNumbers(MAX_VALUES_SCND_FLD, MIN, MAX));
+    setFirstWinnerArr(getRandomNumbers(MAX_SELECTED_VALUES_FIRST, MIN, MAX));
+    setSecondWinnerArr(getRandomNumbers(MAX_SELECTED_VALUES_SECOND, MIN, MAX));
+  };
 
-    return (
-        <div className={classes.resetBtn}>
-            <button className={classes.reset} onClick={() => reset()} type='submit'>
-                Новая игра
-            </button>
-        </div>
-    )
-}
+  const reset = () => {
+    const firstFld = document.getElementById(1).childNodes;
+    const secondFld = document.getElementById(2).childNodes;
 
-export default Reset
+    removeActiveClass(firstFld, active, item);
+    removeActiveClass(secondFld, active, item);
+    setFirstArr([]);
+    setSecondArr([]);
+  };
+
+  return (
+    <div className={classes.resetBtn}>
+      <button className={classes.reset} onClick={() => newGame()}>
+        Новая игра
+      </button>
+      <button className={classes.reset} onClick={() => reset()}>
+        Сброс
+      </button>
+    </div>
+  );
+};
+
+export default Reset;

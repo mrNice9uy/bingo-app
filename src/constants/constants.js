@@ -6,3 +6,4 @@ export const FLD_NUMBER_1 = 1;
 export const FLD_NUMBER_2 = 2;
 export const MAX_SELECTED_VALUES_FIRST = 8;
 export const MAX_SELECTED_VALUES_SECOND = 1;
+export const REQUEST_URL = "/rock-block";

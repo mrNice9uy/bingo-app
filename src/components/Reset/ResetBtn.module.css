@@ -1,27 +1,47 @@
 .resetBtn {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.reset {
+  background: none;
+  color: blueviolet;
+  height: 40px;
+  border: 1px solid blueviolet;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.reset:hover {
+  cursor: pointer;
+}
+
+.reset:active {
+  background-color: blueviolet;
+  color: white;
+  border: 1px solid white;
+}
+
+@media (min-width: 767px) {
+  .resetBtn {
+    margin-top: 10px;
   }
-  
+
   .reset {
-    background: none;
-    color: blueviolet;
-    height: 40px;
-    border: 1px solid blueviolet;
-    border-radius: 15px;
-    padding: 10px;
-    text-align: center;
+    font-size: 24px;
+    line-height: 8px;
   }
-  
-  .reset:hover {
-    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .resetBtn {
+    margin-top: 10px;
   }
-  
-  .reset:active {
-    background-color: blueviolet;
-    color: white;
-    border: 1px solid white;
+
+  .reset {
+    font-size: 24px;
+    line-height: 8px;
   }
-  
+}

@@ -1,26 +1,47 @@
 .resultBtn {
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.showResult {
+  background: none;
+  color: blueviolet;
+  height: 40px;
+  border: 1px solid blueviolet;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.showResult:hover {
+  cursor: pointer;
+}
+
+.showResult:active {
+  background-color: blueviolet;
+  color: white;
+  border: 1px solid white;
+}
+
+@media (min-width: 767px) {
+  .resultBtn {
+    margin-top: 50px;
   }
-  
+
   .showResult {
-    background: none;
-    color: blueviolet;
-    height: 40px;
-    border: 1px solid blueviolet;
-    border-radius: 15px;
-    padding: 10px;
-    text-align: center;
+    font-size: 24px;
+    height: 70px;
   }
-  
-  .showResult:hover {
-    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .resultBtn {
+    margin-top: 50px;
   }
-  
-  .showResult:active {
-    background-color: blueviolet;
-    color: white;
-    border: 1px solid white;
+
+  .showResult {
+    font-size: 24px;
+    height: 70px;
   }
-  
+}

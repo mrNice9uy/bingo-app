@@ -1,16 +1,30 @@
 .text {
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .text span {
-    font-weight: normal;
-    padding: 5px;
+  font-weight: normal;
+  padding: 5px;
 }
 
 .numbersBlock {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 5px;
+}
+
+@media (min-width: 767px) {
+  .text {
+    padding: 15px;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .text {
+    padding: 15px;
+    font-size: 24px;
+  }
 }

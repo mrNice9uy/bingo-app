@@ -1,59 +1,81 @@
 import React from "react";
-import { getRandomNumbers } from "../../utils/utils";
-import { MAX_SELECTED_VALUES_FIRST, MAX_SELECTED_VALUES_SECOND, MIN, MAX, } from "../../constants/constants";
-import classes from './Header.module.css'
-import numberClasses from '../Number/NumberItem.module.css';
+import {
+  getRandomNumbers,
+  magicSet,
+  removeActiveClass,
+} from "../../utils/utils";
+import {
+  MAX_SELECTED_VALUES_FIRST,
+  MAX_SELECTED_VALUES_SECOND,
+  MAX_VALUES,
+  MAX_VALUES_SCND_FLD,
+  MIN,
+} from "../../constants/constants";
+import classes from "./Header.module.css";
+import numberClasses from "../Number/NumberItem.module.css";
 
 const Header = (props) => {
-    const {
-        ticketNum,
-        firstNumbers,
-        secondNumbers,
-        firstArr,
-        setFirstArr,
-        setFirstNumbers,
-        secondArr,
-        setSecondArr,
-        setSecondNumbers
-    } = props
+  const {
+    ticketNum,
+    firstNumbers,
+    secondNumbers,
+    firstArr,
+    setFirstArr,
+    secondArr,
+    setSecondArr,
+  } = props;
 
-    const setNumbers = () => {
-        let firstIds = [];
-        let secondIds = [];
-        getRandomNumbers(MAX_SELECTED_VALUES_FIRST, 1, 19).forEach(item => {
-            firstIds = [...firstIds, item-1];
-        })
-        getRandomNumbers(MAX_SELECTED_VALUES_SECOND, 1, 2).forEach(item => {
-            secondIds = [...secondIds, item-1];
-        })
-        console.log(firstIds)
-        console.log(secondIds)
-        const item = numberClasses.item;
-        debugger;
-        const numbers = document.getElementsByClassName(item);
-        const firstFld = document.getElementById(1)
-        const secondFld = document.getElementById(2)
-        secondFld.childNodes.forEach(el => console.log(el.cl))
-        //secondFld.childNodes.forEach(el => {return console.log(el.classList)})
-        console.log(numbers);
-        console.log(firstFld);
-        console.log(secondFld);
+  const setNumbers = () => {
+    const active = numberClasses.active;
+    const item = numberClasses.item;
+    let firstIds = [];
+    let secondIds = [];
 
-        //setFirstArr([]);
-        //setFirstNumbers(getRandomNumbers(MAX_VALUES, MIN, MAX))
-        //setSecondArr([]);
-        //setSecondNumbers(getRandomNumbers(MAX_VALUES_SCND_FLD, MIN, MAX));
-    }
-    return <header className={classes.header}>
-        <p>Билет {`${ticketNum}`}</p>
-        <button>
-        <img 
-            src="https://img.icons8.com/glyph-neue/64/000000/fantasy.png"
-            alt="magic"
-            onClick={()=> setNumbers()}
+    getRandomNumbers(MAX_SELECTED_VALUES_FIRST, MIN, MAX_VALUES).forEach(
+      (item) => {
+        firstIds = [...firstIds, item - 1];
+      }
+    );
+    getRandomNumbers(
+      MAX_SELECTED_VALUES_SECOND,
+      MIN,
+      MAX_VALUES_SCND_FLD
+    ).forEach((item) => {
+      secondIds = [...secondIds, item - 1];
+    });
+
+    const firstFld = document.getElementById(1).childNodes;
+    const secondFld = document.getElementById(2).childNodes;
+
+    removeActiveClass(firstFld, active, item);
+    removeActiveClass(secondFld, active, item);
+
+    const newFirstArr = magicSet(firstFld, firstIds, active);
+    setFirstArr(newFirstArr);
+    const newSecondArr = magicSet(secondFld, secondIds, active);
+    setSecondArr(newSecondArr);
+  };
+  return (
+    <header className={classes.header}>
+      <p>Билет {`${ticketNum}`}</p>
+      <button>
+        <img
+          src="https://img.icons8.com/glyph-neue/64/000000/fantasy.png"
+          alt="magic"
+          onClick={() =>
+            setNumbers(
+              firstArr,
+              setFirstArr,
+              secondArr,
+              setSecondArr,
+              firstNumbers,
+              secondNumbers
+            )
+          }
         />
-        </button>    
+      </button>
     </header>
-}
+  );
+};
 
-export default Header
+export default Header;

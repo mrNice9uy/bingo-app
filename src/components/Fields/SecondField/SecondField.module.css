@@ -1,16 +1,38 @@
 .text {
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .text span {
-    font-weight: normal;
-    padding: 5px;
+  font-weight: normal;
+  padding: 5px;
 }
 
 .numbersBlock {
+  display: grid;
+  grid-template-columns: repeat(2, 42px);
+  padding: 5px;
+}
+
+@media (min-width: 767px) {
+  .text {
+    padding: 15px;
+    font-size: 24px;
+  }
+  .numbersBlock {
     display: grid;
-    grid-template-columns: repeat(2, 42px);
-    padding: 5px;
+    grid-template-columns: repeat(2, 115px);
+  }
+}
+
+@media (min-width: 992px) {
+  .text {
+    padding: 15px;
+    font-size: 24px;
+  }
+  .numbersBlock {
+    display: grid;
+    grid-template-columns: repeat(2, 142px);
+  }
 }
